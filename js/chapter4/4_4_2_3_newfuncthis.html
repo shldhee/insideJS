@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            생성자 함수가 동작하는 방식
+            1. 빈 객체 생성 및 this 바인딩
+            2. this를 통한 프로퍼티 생성
+            3. 생성된 객체 리턴
+
+
+        */
+        var Person = function (name) {
+            this.name = name;
+        }
+
+        var foo = new Person('foo');
+        console.log(foo.name);
+
+        /*
+            생성자 함수 호출 -> 함수 코드 실행 전 빈객체 생성 -> 빈 객체는 그 객체를 생성한 함수의 내부에서 사용되는 this 에 바인딩 된다.
+            http://blog.naver.com/2evergr/220846734074
+        */
+    </script>
+</body>
+</html>

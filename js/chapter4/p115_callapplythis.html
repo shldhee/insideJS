@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            apply() 메서더의 본질적인 기능은 함수호출
+            Person().apply() 호출시 Person() 함수를 호출
+        */
+
+        function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        var foo = {};
+
+        Person.apply(foo, ['foo',30,'man']);
+        //Person.call(foo, 'foo',30,'man'); call 사용시
+        /*
+            첫 번쨰로 인자로 넘긴 foo가 Person() 함수에서 this로 바인딩 된다.
+            그리고 두 번째로 넘긴 배열 ['foo',30,'man']은 호출하려는 Person() 함수의 인자 name, age, gender로 각각 전달된다.
+            이 코드는 결국 Person('foo',30,'man')함수를 호출하면서 this를 foo 객체에 명시적으로 바인딩하는 것을 의미한다.
+        */
+        console.dir(foo);
+        console.log(foo.name);
+
+        function myFunction() {
+            console.dir(arguments);
+
+        var args = Array.prototype.slice.apply(arguments);
+        console.dir(args);
+        }
+
+        myFunction(1,2,3);
+        /*
+            Array.prototype.slice.apply(arguments)
+            "Array.prototype.slice() 메서드를 호출해라. 이때 this는 arguments 객체로 바인딩해라."
+
+            결국 이말은 arguments 객체가 Array.prototype.slice() 메서드를 마치 자신의 메서드인 양 arguments.slice()와 같은 형태로 메서드를 호출하라는 것이다.
+        */
+        /*
+            slice() 메서드를 호출할 때 사용할 인자를 넘기지 않았으므로, 이 메서드를 호출한 배열을 복사한 새로운 배열을 생성한다.
+            arguments와 arg 두 객체의 __proto__ 프로퍼티는 다르다.
+            arguments는 Object Object.prototype
+            arg는 Array[0] Array.prototype
+        */
+
+    </script>
+</body>
+</html>

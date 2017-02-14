@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+      //내부 함수가 this를 참조하는 자바스크립트의 한계를 극복하려면 부모함수의 this를 내부 함수가 접근 가능한 다른 변수에 저장하는 방법이 있다.
+
+      var value = 100;
+
+      var myObject = {
+          value: 1,
+          func1: function () {
+              var that = this;
+
+              this.value += 1;
+              console.log('func1() called. this.value : ' + this.value);
+
+              func2 = function () {
+                  that.value += 1;
+                  console.log('func2() called. this.value : ' + that.value);
+
+                  func3 = function () {
+                      that.value += 1;
+                      console.log('func3() called. this.value : ' + that.value);
+                  }
+                  func3();
+              }
+              func2();
+          }
+      };
+
+      myObject.func1();
+
+      /*
+        func1()의 this값을 that 변수에 저장.
+        func2(), func3() 내부 함수는 자신을 둘러싼 부모 함수인 func1()의 변수에 접근 가능
+        func2(), func3()도 that 변수로 func1()의 this가 바인딩된 객체인 myObject 접근 가능
+
+        func1() 함수의 this는 myObject를 가리키므로, myObject.value 값이 1 증가
+        부모 함수 func1()의 that변수에도 myObject 객체의 참조값이 저장되어 있으므로, myObject.value 값이 1씩 증가
+      */
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //자바스크립트 함수는 항상 리턴값을 반환한다.
+
+        //리턴문이 없는 경우
+        var noReturnFunc = function() {
+            console.log('This function has no return statement.');
+        };
+
+        var result = noReturnFunc();
+        console.log(result);
+        // return문이 없는 함수의 경우, 함수를 호출할 때 undefined 값이 리턴된다.
+
+
+
+        //생성자 함수에선 별도의 리턴문이 없으면 this로 바인딩된 새로 생성된 객체가 리턴된다.
+        //만약 생성자 함수에서 명시적으로 다른 객체를 return했을 경우
+
+        function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+
+            return {name:'bar', age:20, gedner:'woman'};
+        }
+
+        var foo = new Person('foo', 30, 'man');
+        console.dir(foo);
+
+        //return 객체가 반환된다.
+
+        /*
+            return값이 객체가 아닌 불린, 숫자, 문자열의 경우는 return값을 무시하고
+            this로 바인딩된 객체가 리턴된다.
+
+            return 0
+        */
+
+
+
+
+
+
+    </script>
+</body>
+</html>
