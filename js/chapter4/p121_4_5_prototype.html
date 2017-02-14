@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            객체 리터럴, 생성자 함수로 객체를 생성
+            이렇게 생성된 객체의 부모 객체가 바로 '프로토타입'객체다.
+
+            자바스크립트의 모든 객체는 자신의 부모인 프로토타입 객체를 가리키는 참조 링크 형태의 숨겨진 프로퍼티가 있다.
+
+            ECMAScript에서는 이러한 링크를 암묵적 프로토타입 링크라고 한다.
+            이러한 링크는 모든 객체의 [[Prototype]]프로퍼티에 저장된다.
+            이 책에서는 이러한 링크를 [[Prototype]]링크라고 명명한다.
+
+            자바스크립트에서 모든 객체는 자신을 생성한 생성자 함수의 prototype 프로퍼티가 가리키는 프로토타입 객체를 자신의 부모 객체로 설정하는 [[Prototype]]링크로 연결한다.
+
+        */
+
+        function Person(name) {
+            this.name = name;
+        }
+
+        var foo = new Person('foo');
+
+        console.dir(Person);
+        console.dir(foo);
+
+        // 자바스크립트에서 객체를 생성하는 건 생성자 함수의 역할이지만, 생성된 객체의 실제 부모역할을 하는 건 생성자 자신이 아닌 생성자의 prototype 프로퍼티가 가리키는 프로토타입 객체다.
+
+        // Person() 생성자 함수의 prototype 프로퍼티와 foo객체의 __proto__프로퍼티([[Prototype]] 프로퍼티를 의미)가 같은 프로포토타입 객체를 가리키고 있다는 것을 알 수 있다. 해당 프로토타입 객체는 constructor 프로퍼티가 Person() 생성자 함수를 가리키고 있다.
+    </script>
+</body>
+</html>
