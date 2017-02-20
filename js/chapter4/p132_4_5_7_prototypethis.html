@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.say = function(a,b) {
+                this.name = a;
+                this.age = b;
+            }
+        }
+
+        Person.prototype.getName = function () {
+            return this.say("메","me");
+        }
+
+        var foo = new Person('foo','31');
+        console.dir(foo); // obj
+
+        console.log(foo.getName()); // foo
+
+        Person.prototype.name = 'person';
+
+        console.log(Person.prototype.getName()); //person
+    </script>
+</body>
+</html>
