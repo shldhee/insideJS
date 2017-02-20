@@ -7,6 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-    <script></script>
+    <script>
+        // 자바스크립트에서 모든 객체는 자신을 생성한 생성자 함수의 prototype 프로퍼티가 가리키는 객체를 자신의 프로토타입 객체(부모 객체)로 취급한다.
+
+        function Person(name, age, hobby) {
+            this.name = name;
+            this.age = age;
+            this.hobby = hobby;
+        }
+
+        var foo = new Person('foo', 30, 'tennis');
+
+        console.log('foo.hasOwnProperty("name")', foo.hasOwnProperty('name'));
+
+        console.dir(Person.prototype);
+
+        /*
+             foo 객체에 hasOwnProperty가 없으므로 프로토타입인 생성자 프로포토 타입(Person.prototype)에서 찾는다
+             함수에 연결된 프로토타입 객체는 디폴트로 constructor 프로퍼티만을 가진 객체이므로 hasOwnProperty() 메서드가 없다.
+             Person.prototype 역시 자바스크립트 객체이므로 Object.prototype을 프로토타입 객체로 가진다.
+             Object.prototype 객체의 hasOwnProperty() 메서드가 실행된다.
+        */
+
+    </script>
 </body>
 </html>
