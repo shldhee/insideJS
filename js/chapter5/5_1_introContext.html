@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        /**
+            실행 컨텍스트 = 실행 가능한 코드를 형상화하고 구분하는 추상적인 개념,
+                        실행 가능한 자바스크립트 코드 블록이 실행되는 환경
+
+            ECMAScript에서는 실행 컨텍스트가 형성되는 경우를 세가지로 규정
+            전역코드, eval() 함수로 실행되는 코드, 함수 안의 코드를 실행할 경우
+
+        */
+
+        console.log("this is global context");
+
+        function ExContext1() {
+            console.log("this is ExContext1");
+        }
+
+        function ExContext2() {
+            ExContext1();
+            console.log("This is ExConext2");
+        };
+
+        ExContext2();
+    </script>
+</body>
+</html>
