@@ -8,7 +8,20 @@
 </head>
 <body>
     <script>
-        
+    'use strict';
+        var person1 = {
+            _name: "Nicholas",
+
+            set name(value) {
+                console.log("name의 값을 %s로 설정하는중", value);
+                this._name = value;
+            }
+        };
+
+        console.log(person1.name);
+
+        person1.name = "Greg";
+        console.log(person1.name);
     </script>
 </body>
 </html>
