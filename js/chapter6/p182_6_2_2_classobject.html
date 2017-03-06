@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function Person(arg) {
+            this.name = arg;
+            console.log(this);
+        }
+
+        Person.prototype.setName = function(value) {
+            this.name = value;
+        };
+
+        Person.prototype.getName = function() {
+            return this.name;
+        };
+
+        function Student(arg) {
+            Person.apply(this, arguments);
+            console.log(this);
+            console.log(arguments);
+        }
+
+        var you = new Person("iamhjoo");
+        Student.prototype = you;
+        var me = new Student("zzoon");
+        me.setName("zzoon");
+        console.log(me.getName());
+
+    </script>
+</body>
+</html>

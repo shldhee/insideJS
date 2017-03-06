@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var person = {
+            name: "zzoon",
+            getName : function() {
+                return this.name;
+            },
+            setName : function(arg) {
+                this.name = arg;
+            }
+        };
+
+        function create_object(o) {
+            function F() {};
+            F.prototype = o;
+            return new F();
+        }
+
+        var student = create_object(person);
+
+        student.setName("me");
+        console.log(student.getName());
+
+    </script>
+</body>
+</html>
