@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var Person = function (arg) {
+      var name = arg ? arg : "zzoon";
+
+      return {
+        getName : function () {
+          return name;
+        },
+        setName : function (arg) {
+          name = arg;
+        }
+      };
+    }
+
+    var me = Person();
+    console.log('me.getName()', me.getName());
+  </script>
+</body>
+</html>
